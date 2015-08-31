@@ -86,4 +86,9 @@ class Methods2Test < MiniTest::Test
 		assert_equal false, @m.first_last_six?([0, 0, 3, 4, 5, 0])
 	end
 
+	def test_rotate_left
+		assert_equal [3, 1, 2], @m.rotate_left([2, 3, 1])
+		assert_equal [5, 9, 0], @m.rotate_left([0, 5, 9])
+	end
+
 end

@@ -87,7 +87,13 @@ module Methods2
 		end
 	end
 
-	# TODO - write first_last_six?
+	def first_last_six?(array)
+		if array[0] == 6 || array[array.length - 1] == 6
+			true
+		else
+			false
+		end
+	end
 
 	# TODO - write rotate_left
 

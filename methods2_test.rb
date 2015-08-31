@@ -79,4 +79,11 @@ class Methods2Test < MiniTest::Test
 		assert_equal "butts", @m.fizz_string("butts")
 	end
 
+	def test_first_last_six
+		assert_equal true, @m.first_last_six?([6, 0, 3, 4, 5, 0])
+		assert_equal true, @m.first_last_six?([6, 0, 3, 4, 5, 6])
+		assert_equal true, @m.first_last_six?([0, 0, 3, 4, 5, 6])
+		assert_equal false, @m.first_last_six?([0, 0, 3, 4, 5, 0])
+	end
+
 end

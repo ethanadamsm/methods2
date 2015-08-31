@@ -46,11 +46,37 @@ class Methods2Test < MiniTest::Test
 
 	def test_ticket
 		assert_equal 10, @m.ticket(5, 5, 5)
-		assert_equal 5, @m.ticket(5, 5, 0)
-		assert_equal 5, @m.ticket(0, 5, 5)
-		assert_equal 5, @m.ticket(5, 0, 5)
+		assert_equal 10, @m.ticket(5, 5, 0)
+		assert_equal 10, @m.ticket(0, 5, 5)
+		assert_equal 10, @m.ticket(5, 0, 5)
+		assert_equal 5, @m.ticket(7, 4, 1)
 		assert_equal 0, @m.ticket(2, 2, 2)
-		assert_equal 0, @m.ticket(4, 3, 9)
+		assert_equal 0, @m.ticket(5, 3, 9)
+	end
+
+	def test_in_order
+		assert_equal true, @m.in_order?(1, 2, 3, false)
+		assert_equal true, @m.in_order?(1, 1, 2, true)
+		assert_equal false, @m.in_order?(2, 1, 2, false)
+		assert_equal false, @m.in_order?(1, 2, 1, false)
+		assert_equal false, @m.in_order?(2, 1, 1, true)
+	end
+
+	def test_less_by_ten
+		assert_equal true, @m.less_by_ten?(10, 0, 0)
+		assert_equal true, @m.less_by_ten?(0, 10, 0)
+		assert_equal true, @m.less_by_ten?(0, 0, 10)
+		assert_equal true, @m.less_by_ten?(11, 0, 0)
+		assert_equal true, @m.less_by_ten?(0, 11, 0)
+		assert_equal true, @m.less_by_ten?(0, 0, 11)
+		assert_equal false, @m.less_by_ten?(1, 2, 3)
+	end
+
+	def test_fizz_string
+		assert_equal "Fizz", @m.fizz_string("Face")
+		assert_equal "Buzz", @m.fizz_string("Crumb")
+		assert_equal "FizzBuzz", @m.fizz_string("FaceCrumb")
+		assert_equal "butts", @m.fizz_string("butts")
 	end
 
 end

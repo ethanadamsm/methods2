@@ -44,18 +44,48 @@ module Methods2
 		bc = b + c
 		if ab == 10 || ac == 10 || bc == 10
 			10
-		elsif ab - ac == 10 || ab - bc == 10 || ac - bc == 10 || ac - ab == 10 || bc - ac == 10 || bc - ab == 10	
+		elsif ab - c == 10 || bc - a == 10 || ac - b == 10
 			5
 		else
 			0		
 		end
 	end
 
-	# TODO - write in_order?
+	def in_order?(a, b, c, bOk)
+		if !bOk
+			if b > a && c > b
+				true
+			else
+				false
+			end
+		elsif bOk
+			if c > a
+				true
+			else
+				false
+			end
+		end
+	end
 
-	# TODO - write less_by_ten?
+	def less_by_ten?(a, b, c)
+		if a - b >= 10 || a - c >= 10 || b - a >= 10 || b - c >= 10 || c - a >= 10 || c - b >= 10
+			true
+		else
+			false
+		end
+	end
 	
-	# TODO - write fizz_string
+	def fizz_string(word)
+		if word[0].downcase == "f" && word[word.length - 1] == "b"
+			"FizzBuzz"
+		elsif word[0].downcase == "f"
+			"Fizz"
+		elsif word[word.length - 1] == "b"
+			"Buzz"
+		else 
+			word
+		end
+	end
 
 	# TODO - write first_last_six?
 
